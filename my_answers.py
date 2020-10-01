@@ -53,10 +53,9 @@ def build_part1_RNN(window_size):
 
 ### TODO: return the text input with only ascii lowercase and the punctuation given below included.
 def cleaned_text(text):
-    # punctuation = ['!', ',', '.', ':', ';', '?']
+    # punctuation = ['!',',', '.',':', ';', '?']
     legit_char = str('abcdefghijklmnopqrstuvwxyz!,.:;? ')
     filtered = ''.join(filter(lambda x: x in legit_char, text))
-
     return filtered
 
 ### TODO: fill out the function below that transforms the input text and window-size into a set of input/output pairs for use with our RNN model
@@ -96,6 +95,5 @@ def build_part2_RNN(window_size, num_chars):
 
     # Layer 3: Softmax Activation layer
     model.add(Activation('softmax'))
-
     return model
     # pass
