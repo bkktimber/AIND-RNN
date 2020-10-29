@@ -1,5 +1,4 @@
 import numpy as np
-
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM, Activation
@@ -22,10 +21,8 @@ def window_transform_series(series, window_size):
     X.shape = (np.shape(X)[0:2])
     y = np.asarray(y)
     y.shape = (len(y),1)
-
     assert(type(X).__name__ == 'ndarray')
     assert(type(y).__name__ == 'ndarray')
-
     return X,y
 
 # TODO: build an RNN to perform regression on our time series input/output data
@@ -56,7 +53,6 @@ def cleaned_text(text):
     # punctuation = ['!', ',', '.', ':', ';', '?']
     legit_char = str('abcdefghijklmnopqrstuvwxyz!,.:;? ')
     filtered = ''.join(filter(lambda x: x in legit_char, text))
-
     return filtered
 
 ### TODO: fill out the function below that transforms the input text and window-size into a set of input/output pairs for use with our RNN model
@@ -72,7 +68,6 @@ def window_transform_text(text, window_size, step_size):
 
     assert(type(inputs).__name__ == 'list')
     assert(type(outputs).__name__ == 'list')
-
     return inputs,outputs
 
 # TODO build the required RNN model: 
@@ -96,6 +91,5 @@ def build_part2_RNN(window_size, num_chars):
 
     # Layer 3: Softmax Activation layer
     model.add(Activation('softmax'))
-
     return model
     # pass
